@@ -15,8 +15,6 @@ int minimizetheHeight_I(int arr[] , int n , int k){ // height can be negative
      mi = min(smallest , arr[i+1]-k);
      ma = max(largest , arr[i]+k);
 
-    
-
      ans= min(ans , ma-mi);
  }
 
