@@ -1,42 +1,46 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-string countNsay(int n){
-  
-      if(n==1){
-          return "1";
-      }
-     string a = "1";
-     string b="";
-     int k=0;
-     for(int i=2;i<=n ;i++){
-          
-          for(int i=0 ;i<a.length();i++){
-                
-               if(a[i]==a[i+1]){
-                   k++;
-               }
-               else if(a[i]!=a[i+1]){
+string countAndSay(int n){
+   string a ="1";
+   string b= "";
+   int count=1;
 
-                   k++;
-                   b+=to_string(k)+a[i];
-                   k=0;
 
-               }
+   if(n==1){
+       return a;
 
-          }
 
-          a=b;
-          b="";
+   }
 
-          
-     }
-     return a;
+   for(int i=2; i<=n ;i++){
+       b="";
+       for(int j=0 ;j<a.length() ;j++){
+           if(a[j]==a[j+1]){
+               count++;
+
+           }
+           else{
+               b +=to_string(count) +a[j];
+               count=1;
+
+           }
+
+       }
+       a=b;
+     
+
+   }
+ 
+
+ return a;
 }
+
+
 
 int main(){
 
-   
-    string s = countNsay(2);
-    cout<<s;
+    cout<<countAndSay(5);
+
+
 }
