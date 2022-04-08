@@ -14,45 +14,7 @@ class node{
 
 };
 
-void insert_s(node* &head , int val){
-    node* n = new node(val);
-    n->next = head;
-    head= n;
-
-}
-
-void insert_l(node* &head , int val){                         
-     
-   node* toInsert = new node(val);
-
-   if(head==NULL){
-       insert_s(head , val);
-        return;  
-   }
-
-   node* temp= head;
-
-   while(temp->next!=NULL){
-       temp = temp->next;
-   }
-
-   temp->next = toInsert;
-
-
-}
-
-void display(node *head){
-    node* temp = head;
-    while(temp!=NULL){
-        cout<<temp->data<<" ";
-        temp = temp->next;
-    }
-    cout<<endl;
-}
-
-
-
-bool HasLopp(node* head){
+bool hasLoop(node* head){
    
    node* fast = head;
    node* slow = head;
@@ -66,24 +28,34 @@ bool HasLopp(node* head){
            return true;
        }
    }
-   return false;
+   return false;;
 
 }
-   
+
+void display(node *head){
+    node* temp = head;
+    while(temp!=NULL){
+        cout<<temp->data<<" ";
+        temp = temp->next;
+    }
+    cout<<endl;
+}
   
 int main(){
-    node* head = NULL;
+    node* head = new node(10);
+    head->next = new node(20);
+    head->next->next = new node(30);
+    head->next->next->next = new node(40);
+    head->next->next->next->next = new node(50);
+    head->next->next->next->next = head->next->next->next;
 
-    insert_l(head , 1);
-    insert_l(head , 2);
-    insert_l(head , 3);
-    insert_l(head , 4);
-    insert_l(head , 5);
-    insert_l(head , 6);
-    insert_l(head , 7);
-    
+    cout<<hasLoop(head);
 
-   cout<<HasLopp(head);
+
+
+
+
+   
 
 
 
