@@ -33,8 +33,13 @@ node* hasLoop(node* head){
 }
 
 node* detectFirstLoop(node* head){
+
     node* meet = hasLoop(head);
     node* start = head;
+    if(meet==NULL){
+        return NULL;
+    }
+   
 
     while(start!=meet){
         start = start->next;
@@ -42,7 +47,7 @@ node* detectFirstLoop(node* head){
 
     }
 
-    return start;
+    return meet;
 }
 
 void display(node *head){
@@ -60,10 +65,16 @@ int main(){
     head->next->next = new node(30);
     head->next->next->next = new node(40);
     head->next->next->next->next = new node(50);
-    head->next->next->next->next = head->next->next->next;
+    head->next->next->next->next = head->next->next;
 
-    node* startLoop = detectFirstLoop(head);
-    cout<<startLoop->data;
+   node* res =  detectFirstLoop(head);
+   if(res==NULL){
+       cout<<"No Loops ";
+   }
+   else{
+       cout<<"Loop starting node is : "<<res->data;
+   }
+   
 
 
 
