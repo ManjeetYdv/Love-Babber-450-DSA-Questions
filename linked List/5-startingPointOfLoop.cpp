@@ -143,6 +143,7 @@ int main(){
     insert_l(head ,7 );
     insert_l(head ,8 );
     insert_l(head ,9 );
+    insert_l(head ,10);
 
     display(head);
 
