@@ -10,6 +10,7 @@ class node{
     node(int val){
         data = val;
         next = NULL;
+        
     }
 
 };
