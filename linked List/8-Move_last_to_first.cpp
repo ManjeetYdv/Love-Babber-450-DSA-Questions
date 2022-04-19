@@ -41,44 +41,21 @@ void insert_l(node* &head , int val){                          //insert at last
 
 }
 
-node* reverseList(node* &head){
-  
-  node* prevptr=NULL;
-  node* curr= head;
-  node* nextptr;
+void move_last_to_first(node* &head ){
+    node* temp = head;
+    node* lastPtr;
 
-  while(curr!=NULL){
-      nextptr= curr->next;
-      curr->next = prevptr;
+    while(temp->next->next!=NULL){
+        temp = temp->next;
+    }
 
-      prevptr=curr;
-      curr= nextptr;
-
-
-  }
-
-  return prevptr;
-   
-}
-
-node* reverseRecurssive(node* &head){
-
-    if(head==NULL  || head->next==NULL){
-        return head;
-    } 
-
-    node* newHead = reverseRecurssive(head->next);
-
-    node* headNext =head->next;
-    headNext->next = head;
-    head->next=NULL;
-
-    return newHead;
-
-
-
+    lastPtr = temp->next;
+    temp->next = NULL;
+    lastPtr->next = head;
+    head= lastPtr;
 
 }
+
 
 void display(node* head){
 
@@ -98,12 +75,9 @@ int main(){
     insert_l(head , 4);
     insert_l(head , 5);
 
-    head=reverseRecurssive(head);
+    move_last_to_first(head);
 
-    
-
-    
-    display(head);
+     display(head);
 
 
 
