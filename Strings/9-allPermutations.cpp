@@ -1,7 +1,6 @@
 #include<bits/stdc++.h>
 using namespace std;
 
-
 string swap(string str , int i ,int l){
     
      char temp = str[l];
