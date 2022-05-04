@@ -19,7 +19,6 @@ vector<string> substrs(string str){
         else{
             count1++;
         }
-
         if(count0==count1){
             s.push_back(str.substr(idx , count0+count1));
             idx =i+1;
