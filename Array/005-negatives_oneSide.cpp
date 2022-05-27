@@ -1,32 +1,36 @@
-#include<iostream>
-using namespace std;
+package com.company;
+
+public class negative_one_side {
+
+    public static void main(String[] args) {
+
+        int[] arr = {4 ,5 ,-1 , -2};
+        oneside(arr);
+
+        for(int i= 0;i<arr.length ;i++){
+            System.out.print(arr[0] + " ");
+        }
 
 
-void oneside(int arr[] , int n){
-   
-   int j=0;
-   for(int i=0 ;i<n ;i++){  
+    }
+    public static void oneside(int[] arr){
 
-       if(arr[i]<0){
-           if(i!=j){
-               swap(arr[i] ,arr[j]);
-               j++;
-           }
-       }
-   }
+        int j=0;
+        int temp;
 
-  
+        for(int i=0 ;i<arr.length ;i++){
 
+            if(arr[i]<0){
+                if(i!=j){
+                    temp = arr[i];
+                    arr[i]=arr[j];
+                    arr[j]=temp;
+                    
+                }
+                j++;
+            }
+        }
 
-
-}
-int main(){
-    int arr[]={-12, 11, -13, -5, 6, -7, 5, -3, -6};
-    int n = sizeof(arr)/sizeof(arr[0]);
-    
-    oneside(arr ,n);
-    for(int i=0 ;i<n ;i++){
-        cout<<arr[i]<<" ";
     }
 
 }
